@@ -1,0 +1,23 @@
+<h1 class='center'>{{ title }}</h1>
+<br>
+<br>
+<div class="container">
+<h6>Ajoutez ici vos tâches</h6>
+<input type="text" #newTodo/>
+<button class="btn waves-effect waves-light" (click)="addTodo(newTodo.value); newTodo.value=''">Add</button>
+
+<table>
+  <tr>
+    <td>Label</td>
+    <td>Etat</td>
+    <td>Supprimer</td>
+    <td>Valider/Invalider</td>
+  </tr>
+  <tr *ngFor='let todo of todos'>
+    <td>{{todo.label}}</td>
+    <td>{{todo.done ? '&#10003;' : '&#10005;'}}</td>
+    <td><button class="btn waves-effect waves-light" (click)="delete(todo)">Delete</button></td>
+    <td><button class="btn waves-effect waves-light" (click)="switchDone(todo)">SwitchDone</button></td>
+  </tr>
+</table>
+</div>
